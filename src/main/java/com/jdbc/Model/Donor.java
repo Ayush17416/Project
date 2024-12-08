@@ -1,4 +1,4 @@
-package com.jdbc.connector;
+package com.jdbc.Model;
 
 // This class represents a Donor with attributes like ID, name, blood type, and location
 public class Donor {

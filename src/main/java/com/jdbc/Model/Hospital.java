@@ -1,4 +1,4 @@
-package com.jdbc.connector;
+package com.jdbc.Model;
 
 // This class represents a Hospital with attributes like ID, name, and location
 public class Hospital {

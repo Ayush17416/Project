@@ -1,17 +1,17 @@
-package com.jdbc.connector;
+package com.jdbc.Dao;
 
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
+import com.jdbc.Model.*;
 
 // Implementation of the BloodDriveDao interface using JDBC for MySQL database operations
-public class BloodDriveDaoImpl implements BloodDriveDao {
+public class BloodDriveDaoImpl{
     private static final String DB_URL = "jdbc:mysql://localhost:3306/blood_donation"; // Database URL
     private static final String USER = "root";  // MySQL username (replace as needed)
     private static final String PASSWORD = "1983";  // MySQL password (replace as needed)
 
     // Adds a new blood drive to the database
-    @Override
     public void addBloodDrive(BloodDrive bloodDrive) {
         String query = "INSERT INTO blood_drives (location, date) VALUES (?, ?)";
         try {
@@ -27,7 +27,6 @@ public class BloodDriveDaoImpl implements BloodDriveDao {
     }
 
     // Retrieves a blood drive from the database by ID
-    @Override
     public BloodDrive getBloodDriveById(int id) {
         String query = "SELECT * FROM blood_drives WHERE id = ?";
         try {
@@ -49,8 +48,7 @@ public class BloodDriveDaoImpl implements BloodDriveDao {
     }
 
     // Retrieves all blood drives from the database
-    @Override
-    public List<BloodDrive> getAllBloodDrive() {
+    public List<BloodDrive> getAllBloodDrives() {
         List<BloodDrive> bloodDrives = new ArrayList<>();
         String query = "SELECT * FROM blood_drives";
         try {
@@ -71,7 +69,6 @@ public class BloodDriveDaoImpl implements BloodDriveDao {
     }
 
     // Updates the details of an existing blood drive in the database
-    @Override
     public void updateBloodDrive(BloodDrive bloodDrive) {
         String query = "UPDATE blood_drives SET location = ?, date = ? WHERE id = ?";
         try {
@@ -88,7 +85,6 @@ public class BloodDriveDaoImpl implements BloodDriveDao {
     }
 
     // Deletes a blood drive from the database by ID
-    @Override
     public void deleteBloodDrive(int id) {
         String query = "DELETE FROM blood_drives WHERE id = ?";
         try {

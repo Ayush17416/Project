@@ -1,17 +1,17 @@
-package com.jdbc.connector;
+package com.jdbc.Dao;
 
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
+import com.jdbc.Model.*;
 
 // Implementation of the HospitalDao interface using JDBC for MySQL database operations
-public class HospitalDaoImpl implements HospitalDao {
+public class HospitalDaoImpl{
     private static final String DB_URL = "jdbc:mysql://localhost:3306/blood_donation"; // Database URL
     private static final String USER = "root";  // MySQL username (replace as needed)
     private static final String PASSWORD = "1983";  // MySQL password (replace as needed)
 
     // Adds a hospital to the database
-    @Override
     public void addHospital(Hospital hospital) {
         String query = "INSERT INTO hospitals (name, location) VALUES (?, ?)";
         try {
@@ -27,7 +27,6 @@ public class HospitalDaoImpl implements HospitalDao {
     }
 
     // Retrieves a hospital from the database by ID
-    @Override
     public Hospital getHospitalById(int id) {
         String query = "SELECT * FROM hospitals WHERE id = ?";
         try {
@@ -49,8 +48,7 @@ public class HospitalDaoImpl implements HospitalDao {
     }
 
     // Retrieves all hospitals from the database
-    @Override
-    public List<Hospital> getAllHospital() {
+    public List<Hospital> getAllHospitals() {
         List<Hospital> hospitals = new ArrayList<>();
         String query = "SELECT * FROM hospitals";
         try {
@@ -71,7 +69,6 @@ public class HospitalDaoImpl implements HospitalDao {
     }
 
     // Updates a hospital's information in the database
-    @Override
     public void updateHospital(Hospital hospital) {
         String query = "UPDATE hospitals SET name = ?, location = ? WHERE id = ?";
         try {
@@ -88,7 +85,6 @@ public class HospitalDaoImpl implements HospitalDao {
     }
 
     // Deletes a hospital from the database by ID
-    @Override
     public void deleteHospital(int id) {
         String query = "DELETE FROM hospitals WHERE id = ?";
         try {

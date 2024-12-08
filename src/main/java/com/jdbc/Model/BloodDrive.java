@@ -1,4 +1,4 @@
-package com.jdbc.connector;
+package com.jdbc.Model;
 
 import java.sql.Date;
 

@@ -1,17 +1,18 @@
-package com.jdbc.connector;
+package com.jdbc.Dao;
 
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
+import com.jdbc.Model.*;
 
 // Implementation of the DonorDao interface using JDBC for MySQL database operations
-public class DonorDaoImpl implements DonorDao {
+public class DonorDaoImpl /*implements DonorDao */{
     private static final String DB_URL = "jdbc:mysql://localhost:3306/blood_donation"; // Database URL
     private static final String USER = "root";  // MySQL username (replace as needed)
     private static final String PASSWORD = "1983";  // MySQL password (replace as needed)
 
     // Adds a donor to the database
-    @Override
+    //@Override
     public void addDonor(Donor donor) {
         String query = "INSERT INTO donors (name, blood_type, location) VALUES (?, ?, ?)";
         try {
@@ -28,7 +29,7 @@ public class DonorDaoImpl implements DonorDao {
     }
 
     // Retrieves a donor from the database by ID
-    @Override
+    //@Override
     public Donor getDonorById(int id) {
         String query = "SELECT * FROM donors WHERE id = ?";
         try {
@@ -51,7 +52,7 @@ public class DonorDaoImpl implements DonorDao {
     }
 
     // Retrieves all donors from the database
-    @Override
+    //@Override
     public List<Donor> getAllDonor() {
         List<Donor> donors = new ArrayList<>();
         String query = "SELECT * FROM donors";
@@ -74,7 +75,7 @@ public class DonorDaoImpl implements DonorDao {
     }
 
     // Updates a donor's information in the database
-    @Override
+    //@Override
     public void updateDonor(Donor donor) {
         String query = "UPDATE donors SET name = ?, blood_type = ?, location = ? WHERE id = ?";
         try {
@@ -92,7 +93,7 @@ public class DonorDaoImpl implements DonorDao {
     }
 
     // Deletes a donor from the database by ID
-    @Override
+    //@Override
     public void deleteDonor(int id) {
         String query = "DELETE FROM donors WHERE id = ?";
         try {
@@ -105,4 +106,6 @@ public class DonorDaoImpl implements DonorDao {
             System.out.println("Error while deleting donor: " + exception.getMessage());
         }
     }
+
+
 }

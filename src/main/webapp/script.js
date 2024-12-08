@@ -10,8 +10,8 @@ function openTab(tabName) {
     document.getElementById(tabName).style.display = 'block';
 }
 
-async function registerDonor() {
-    /*const name = document.getElementById('donorName').value;
+function registerDonor() {
+    const name = document.getElementById('donorName').value;
     const bloodType = document.getElementById('donorBloodType').value;
     const location = document.getElementById('donorLocation').value;
 
@@ -19,30 +19,6 @@ async function registerDonor() {
         donors.push({ name, bloodType, location });
         document.getElementById('donorMessage').innerText = "Donor registered successfully!";
         updateDonorList();
-        clearFields(['donorName', 'donorBloodType', 'donorLocation']);
-    } else {
-        alert("Please fill all fields!");
-    }*/
-    const name = document.getElementById('donorName').value;
-    const bloodType = document.getElementById('donorBloodType').value;
-    const location = document.getElementById('donorLocation').value;
-    if (name && bloodType && location) {
-        // Create a URLSearchParams object to send form data
-        const formData = new URLSearchParams();
-        formData.append("name", name);
-        formData.append("bloodType", bloodType);
-        formData.append("location", location);
-
-        // Send the data to the backend using fetch
-        const response = await fetch('/donor/add', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/x-www-form-urlencoded' // Standard for form submissions
-            },
-            body: formData.toString() // Convert the form data to a query string
-        });
-        const message = await response.text(); // You can modify this if the backend sends a JSON response
-        document.getElementById('donorMessage').innerText = message;
         clearFields(['donorName', 'donorBloodType', 'donorLocation']);
     } else {
         alert("Please fill all fields!");

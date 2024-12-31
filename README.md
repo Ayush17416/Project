@@ -15,7 +15,7 @@ The Blood Donation Management System is designed to streamline the process of bl
 - **Framework:** JSP
 - **Build Tool:** Maven
 - **Database:** MySQL
-- **IDE:** IntelliJ IDEA
+- **IDE:** Netbeans
 
 ## Database Configuration
 Ensure you have a MySQL database set up with the following schema:
